@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Cart from '../cart/Cart';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ReviewItem from '../reviewItem/ReviewItem';
 import './Orders.css'
 import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
@@ -32,7 +32,11 @@ const Orders = () => {
             </div>
             <div className='cart-container'>
                 <Cart cart={cart}
-                handleClearCart={handleClearCart}></Cart>   
+                handleClearCart={handleClearCart}>
+                    <Link to="/checkout">
+                        <button className='btn-proced'>Proceed Checkout</button>
+                    </Link>
+                    </Cart>   
                 {/* cart={[]} eta cart er array ta ke loop korbe just empty array thakai empty dekhabe but jdi na di  tahole error dbe */}
             </div>
         </div>
